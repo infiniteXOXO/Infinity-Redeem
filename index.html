@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redeem | Infinity</title>
+    <style>
+      body {
+        background: url("https://www.pixelstalk.net/wp-content/uploads/images1/Dark-space-wallpaper-1920x1200.jpg") no-repeat center center fixed; 
+        background-size: cover;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      
+      #container {
+        margin: 50px auto;
+        width: 500px;
+        height: 300px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 20px;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      
+      #popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+      }
+      
+      #popup button {
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      
+      #popup button:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Infinity Rewards</h1>
+      <p>Redeem a Orignal Infinity code of 6 Characters, Make sure to include dashes with no gaps. Send Complains to @aayanali628</p>
+      <input type="text" id="code" placeholder="Infinity Code (XXX-XXX)">
+    </div>
+    
+    <div id="popup">
+      <p id="message"></p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+    
+    <script>
+      function showPopup(message) {
+        document.getElementById("message").innerHTML = message;
+        document.getElementById("popup").style.display = "block";
+      }
+      
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+      
+      document.getElementById("code").addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          checkCode();
+        }
+      });
+      
+      function checkCode() {
+        var code = document.getElementById("code").value.toLowerCase();
+        if (code === "696-696") {
+          showPopup("You have redeemed a fortnite account!");
+        } else if (code === "999-999") {
+          showPopup("You have redeemed a Valorant 99 skins account!");
+        } else {
+          showPopup("Code not recognized.");
+        }
+        document.getElementById("code").value = "";
+      }
+    </script>
+  </body>
+</html>
